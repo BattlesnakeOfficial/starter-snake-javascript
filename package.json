@@ -17,6 +17,7 @@
     "nodemon": "*"
   },
   "devDependencies": {},
+  "main": "index.js",
   "engines": {
     "node": "0.10.x"
   }
