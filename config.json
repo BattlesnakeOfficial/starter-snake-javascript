@@ -1,0 +1,20 @@
+{
+  "host": "localhost",
+  "port": 9001,
+  "routes": {
+    "state": "/",
+    "start": "/start",
+    "move": "/move",
+    "end": "/end"
+  },
+  "snake" : {
+    "name": "battlesnake-node",
+    "color": "#fff000",
+    "head_url": "http://battlesnake-node.herokuapp.com/",
+    "taunt": {
+      "state": "It's great to be alive!",
+      "start": "Let's do this thang!",
+      "end": "I've been snaked!"
+    }
+  }
+}

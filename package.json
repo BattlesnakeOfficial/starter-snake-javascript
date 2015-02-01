@@ -1,0 +1,23 @@
+{
+  "name": "",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "author": "",
+  "repository": "https://github.com/sendwithus/battlesnake-node",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "express": "*",
+    "nodemon": "*"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "0.10.x"
+  }
+}
