@@ -4,7 +4,7 @@ var express     = require('express');
 var app         = express();
 var routes      = require('./routes');
 
-app.set('port', (config.port || process.env.PORT));
+app.set('port', (process.env.PORT || config.port));
 
 app.use(bodyParser.json());
 app.use(routes);
