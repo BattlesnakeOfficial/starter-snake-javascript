@@ -13,6 +13,7 @@
     "head_url": "http://battlesnake-node.herokuapp.com/",
     "taunt": {
       "state": "It's great to be alive!",
+      "move": "Outta my way snake!",
       "start": "Let's do this thang!",
       "end": "I've been snaked!"
     }

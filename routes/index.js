@@ -18,7 +18,7 @@ router.get(config.routes.state, function (req, res) {
     score: 4
   };
 
-  res.json(data);
+  return res.json(data);
 });
 
 // Start
@@ -35,7 +35,7 @@ router.post(config.routes.start, function (req, res) {
     taunt: config.snake.taunt.start
   };
 
-  res.json(data);
+  return res.json(data);
 });
 
 // Move
@@ -44,20 +44,21 @@ router.post(config.routes.move, function (req, res) {
 
   // Response data
   var data = {
-    move: '', // one of: ["up", "down", "left", "right"]
-    taunt: config.snake.color
+    move: 'up', // one of: ["up", "down", "left", "right"]
+    taunt: 'What?!' || config.snake.move.taunt
   };
 
-  res.json(data);
+  return res.json(data);
 });
 
 // End the session
 router.post(config.routes.end, function (req, res) {
-  // Do something here to end yoru snake's session
+  // Do something here to end your snake's session
 
   // We don't need a response so just send back a 200
   res.status(200);
   res.end();
+  return;
 });
 
 
