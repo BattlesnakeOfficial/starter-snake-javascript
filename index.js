@@ -38,7 +38,7 @@ app.use(function (err, req, res, next) {
 
   res.status(404);
   res.send({
-    statusCode: 404,
+    status: 404,
     error: err.message || '** no snakes here **'
   });
 
@@ -51,7 +51,7 @@ app.use(function (err, req, res, next) {
 
   res.status(statusCode);
   res.send({
-    statusCode: statusCode,
+    status: statusCode,
     error: err
   });
 
