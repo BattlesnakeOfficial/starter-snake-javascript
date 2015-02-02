@@ -39,7 +39,7 @@ app.use(function (err, req, res, next) {
   res.status(404);
   res.send({
     status: 404,
-    error: err.message || '** no snakes here **'
+    error: err.message || 'no snakes here'
   });
 
   return;
