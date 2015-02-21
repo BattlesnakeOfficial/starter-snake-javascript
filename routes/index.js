@@ -8,7 +8,6 @@ router.get(config.routes.state, function (req, res) {
 
   // Response data
   var data = {
-    id: config.snake.id,
     name: config.snake.name,
     color: config.snake.color,
     head_url: config.snake.head_url,
