@@ -44,7 +44,7 @@ router.post(config.routes.move, function (req, res) {
   // Response data
   var data = {
     move: 'up', // one of: ["up", "down", "left", "right"]
-    taunt: 'What?!' || config.snake.move.taunt
+    taunt: 'What?!' || config.snake.taunt.move
   };
 
   return res.json(data);
