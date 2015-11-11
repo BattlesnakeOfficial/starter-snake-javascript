@@ -1,25 +1,25 @@
 {
-  "name": "",
-  "description": "",
+  "name": "battlesnake-node",
+  "description": "A simple BattleSnake AI written in Javascript for NodeJS",
   "version": "0.0.0",
   "private": true,
-  "author": "",
+  "author": "Sendwithus",
   "repository": "https://github.com/sendwithus/battlesnake-node",
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "type": "WTFPL",
+      "url": "http://www.wtfpl.net/txt/copying/"
     }
   ],
   "dependencies": {
-    "body-parser": "^1.12.0",
+    "body-parser": "^1.14.1",
     "express": "*",
-    "morgan": "^1.5.1",
+    "morgan": "^1.6.1",
     "nodemon": "*"
   },
   "devDependencies": {},
   "main": "index.js",
   "engines": {
-    "node": "0.10.x"
+    "node": "4.x"
   }
 }
