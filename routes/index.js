@@ -9,7 +9,6 @@ router.get(config.routes.info, function (req, res) {
     color: config.snake.color,
     head_url: config.snake.head_url,
   };
-  console.log(process.env.PORT)
 
   return res.json(data);
 });
