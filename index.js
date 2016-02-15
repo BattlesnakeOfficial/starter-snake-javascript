@@ -5,7 +5,7 @@ var logger      = require('morgan');
 var app         = express();
 var routes      = require('./routes');
 
-app.set('port', (process.env.PORT || config.port));
+app.set('port', (config.port));
 
 app.enable('verbose errors');
 

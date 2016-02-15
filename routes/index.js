@@ -2,55 +2,44 @@ var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
 
-// Get the state of the snake
-router.get(config.routes.state, function (req, res) {
-  // Do something here to calculate the returned state
-
+// Handle GET request to '/'
+router.get(config.routes.info, function (req, res) {
   // Response data
   var data = {
-    name: config.snake.name,
     color: config.snake.color,
     head_url: config.snake.head_url,
-    taunt: config.snake.taunt.state,
-    state: "alive",
-    coords: [[0, 0], [0, 1], [0, 2], [1, 2]],
-    score: 4
   };
+  console.log(process.env.PORT)
 
   return res.json(data);
 });
 
-// Start
+// Handle POST request to '/start'
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
-  // Hint: do something with the incoming game_id? ;)
-  console.log('Game ID:', req.body.game_id);
 
   // Response data
   var data = {
-    name: config.snake.name,
-    color: config.snake.color,
-    head_url: config.snake.head_url,
     taunt: config.snake.taunt.start
   };
 
   return res.json(data);
 });
 
-// Move
+// Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
   // Do something here to generate your move
 
   // Response data
   var data = {
-    move: 'up', // one of: ["up", "down", "left", "right"]
-    taunt: 'What?!' || config.snake.taunt.move
+    move: 'north', // one of: ["north", "east", "south", "west"]
+    taunt: config.snake.taunt.move
   };
 
   return res.json(data);
 });
 
-// End the session
+// Handle POST request to '/end'
 router.post(config.routes.end, function (req, res) {
   // Do something here to end your snake's session
 
