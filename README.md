@@ -33,7 +33,7 @@ Run the server:
 nf start web
 ```
 
-Test the client in your browser: [http://localhost:9001](http://localhost:9001)
+Test the client in your browser: [http://localhost:5000](http://localhost:5000)
 
 
 ### Deploying to Heroku
