@@ -12,15 +12,17 @@
     }
   ],
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "*",
-    "morgan": "^1.6.1",
-    "nodemon": "*"
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "foreman": "^2.0.0"
+  },
   "main": "index.js",
   "engines": {
-    "node": "4.x"
+    "node": "6.x"
   },
   "scripts": {
     "start": "nf start"

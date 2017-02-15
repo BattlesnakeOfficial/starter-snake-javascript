@@ -1,65 +1,69 @@
-var config      = require('./config.json');
-var bodyParser  = require('body-parser');
-var express     = require('express');
-var logger      = require('morgan');
-var app         = express();
-var routes      = require('./routes');
+/**
+ * NOTE: Don't worry about editing this file!
+ * Where you want to focus is adding your AI to the endpoints in routes/index.js.
+ */
 
-app.set('port', (process.env.PORT || config.port));
+var bodyParser = require('body-parser')
+var express = require('express')
+var logger = require('morgan')
+var app = express()
+var routes = require('./routes')
+
 // For deployment to Heroku, the port needs to be set using ENV, so
-// we check for the port number in process.env before going to config.
+// we check for the port number in process.env
+app.set('port', (process.env.PORT || 9001))
 
-app.enable('verbose errors');
+app.enable('verbose errors')
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(routes);
+app.use(logger('dev'))
+app.use(bodyParser.json())
+app.use(routes)
 
 app.use('*',function (req, res, next) {
   if (req.url === '/favicon.ico') {
     // Short-circuit favicon requests
-    res.set({'Content-Type': 'image/x-icon'});
-    res.status(200);
-    res.end();
-    next();
+    res.set({'Content-Type': 'image/x-icon'})
+    res.status(200)
+    res.end()
+    next()
   } else {
     // Reroute all 404 routes to the 404 handler
-    var err = new Error();
-    err.status = 404;
-    next(err);
+    var err = new Error()
+    err.status = 404
+    next(err)
   }
 
-  return;
-});
+  return
+})
 
 // 404 handler middleware, respond with JSON only
 app.use(function (err, req, res, next) {
   if (err.status !== 404) {
-    return next(err);
+    return next(err)
   }
 
-  res.status(404);
+  res.status(404)
   res.send({
     status: 404,
-    error: err.message || 'no snakes here'
-  });
+    error: err.message || "These are not the snakes you're looking for"
+  })
 
-  return;
-});
+  return
+})
 
 // 500 handler middleware, respond with JSON only
 app.use(function (err, req, res, next) {
-  var statusCode = err.status || 500;
+  var statusCode = err.status || 500
 
-  res.status(statusCode);
+  res.status(statusCode)
   res.send({
     status: statusCode,
     error: err
-  });
+  })
 
-  return;
-});
+  return
+})
 
 var server = app.listen(app.get('port'), function () {
-  console.log('Server listening at http://%s:%s', config.host, app.get('port'));
-});
+  console.log('Server listening on port %s', app.get('port'))
+})

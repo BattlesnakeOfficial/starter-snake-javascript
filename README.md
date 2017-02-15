@@ -6,7 +6,7 @@ To get started you'll need a working NodeJS development environment, and at leas
 
 If you haven't setup a NodeJS development environment before, read [how to get started with NodeJS](http://nodejs.org/documentation/tutorials/). You'll also need [npm](https://www.npmjs.com/) for easy JS dependency management.
 
-This client uses [Express4](http://expressjs.com/) for easy route management, read up on the docs to learn more about reading incoming JSON params, writing responses, etc.
+This client uses [Express4](http://expressjs.com/en/4x/api.html) for easy route management, read up on the docs to learn more about reading incoming JSON params, writing responses, etc.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -20,12 +20,13 @@ git clone git@github.com:sendwithus/battlesnake-node.git
 cd battlesnake-node
 ```
 
-Install dependencies:
+Install the client dependencies:
 
 ```
-npm install -g foreman  # Node implementation of Ruby Foreman
 npm install
 ```
+
+Create an `.env` file in the root of the project and add your environment variables (optional).
 
 Run the server:
 
