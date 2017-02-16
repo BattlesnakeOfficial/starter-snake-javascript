@@ -8,7 +8,7 @@ router.post('/start', function (req, res) {
   // Response data
   var data = {
     color: "#DFFF00",
-    name: "Cage Snake",
+    name: "Trump Snake",
     head_url: "http://www.placecage.com/c/200/200", // optional, but encouraged!
     taunt: "Let's do thisss thang!", // optional, but encouraged!
   }
