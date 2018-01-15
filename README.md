@@ -1,6 +1,6 @@
 # battlesnake-node(js)
 
-A simple [BattleSnake AI](http://battlesnake.io) written in Javascript for NodeJS.
+A simple [BattleSnake AI](https://battlesnake.io) written in Javascript for NodeJS.
 
 To get started you'll need a working NodeJS development environment, and at least read the Heroku docs on [deploying a NodeJS app](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
@@ -10,19 +10,18 @@ This client uses [Express4](http://expressjs.com/en/4x/api.html) for easy route 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-
-### Running the AI locally
+## Running the AI locally
 
 Fork and clone this repo:
 
-```
+```shell
 git clone git@github.com:sendwithus/battlesnake-node.git
 cd battlesnake-node
 ```
 
 Install the client dependencies:
 
-```
+```shell
 npm install
 ```
 
@@ -30,36 +29,38 @@ Create an `.env` file in the root of the project and add your environment variab
 
 Run the server:
 
-```
+```shell
 nf start web
 ```
 
 Test the client in your browser: [http://localhost:5000](http://localhost:5000)
 
-
-### Deploying to Heroku
+## Deploying to Heroku
 
 Click the Deploy to Heroku button at the top or use the command line commands below.
 
 Create a new NodeJS Heroku app:
 
-```
+```shell
 heroku create [APP_NAME]
 ```
 
 Push code to Heroku servers:
-```
+
+```shell
 git push heroku master
 ```
 
 Open Heroku app in browser:
-```
+
+```shell
 heroku open
 ```
 
-Or go directly via http://APP_NAME.herokuapp.com
+Or go directly via <http://APP_NAME.herokuapp.com>
 
 View/stream server logs:
-```
+
+```shell
 heroku logs --tail
 ```

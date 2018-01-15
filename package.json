@@ -12,13 +12,13 @@
     }
   ],
   "dependencies": {
-    "body-parser": "^1.16.1",
-    "express": "^4.14.1",
-    "morgan": "^1.8.1",
-    "nodemon": "^1.11.0"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "foreman": "^2.0.0"
+    "foreman": "^2.0.0",
+    "nodemon": "^1.14.11"
   },
   "main": "index.js",
   "engines": {
