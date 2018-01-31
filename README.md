@@ -30,7 +30,7 @@ Create an `.env` file in the root of the project and add your environment variab
 Run the server:
 
 ```shell
-nf start web
+npm start
 ```
 
 Test the client in your browser: [http://localhost:5000](http://localhost:5000)
