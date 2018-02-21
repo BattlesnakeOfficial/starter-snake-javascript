@@ -27,13 +27,19 @@ npm install
 
 Create an `.env` file in the root of the project and add your environment variables (optional).
 
-Run the server:
+Run the server (emulating Heroku):
 
 ```shell
 npm start
 ```
 
-Test the client in your browser: [http://localhost:5000](http://localhost:5000)
+You can also run the server with auto-reloading on file change:
+
+```shell
+npm run dev
+```
+
+Test the client in your browser at <http://localhost:5000>
 
 ## Deploying to Heroku
 

@@ -1,13 +1,13 @@
-/**
- * NOTE: Don't worry about editing this file!
- * Where you want to focus is adding your AI to the endpoints in routes/index.js.
- */
-
-var bodyParser = require('body-parser')
-var express = require('express')
-var logger = require('morgan')
-var app = express()
-var routes = require('./routes')
+const bodyParser = require('body-parser')
+const express = require('express')
+const logger = require('morgan')
+const app = express()
+const {
+  fallbackHandler,
+  notFoundHandler,
+  genericErrorHandler,
+  poweredByHandler
+} = require('./handlers.js')
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -17,53 +17,43 @@ app.enable('verbose errors')
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
-app.use(routes)
+app.use(poweredByHandler)
 
-app.use('*', function (req, res, next) {
-  if (req.url === '/favicon.ico') {
-    // Short-circuit favicon requests
-    res.set({'Content-Type': 'image/x-icon'})
-    res.status(200)
-    res.end()
-    next()
-  } else {
-    // Reroute all 404 routes to the 404 handler
-    var err = new Error()
-    err.status = 404
-    next(err)
+// --- SNAKE LOGIC GOES BELOW THIS LINE ---
+
+// Handle POST request to '/start'
+app.post('/start', (request, response) => {
+  // NOTE: Do something here to start the game
+
+  // Response data
+  const data = {
+    color: '#DFFF00',
+    head_url: 'http://www.placecage.com/c/200/200', // optional, but encouraged!
+    taunt: "Let's do thisss thang!", // optional, but encouraged!
   }
 
-  return
+  return response.json(data)
 })
 
-// 404 handler middleware, respond with JSON only
-app.use(function (err, req, res, next) {
-  if (err.status !== 404) {
-    return next(err)
+// Handle POST request to '/move'
+app.post('/move', (request, response) => {
+  // NOTE: Do something here to generate your move
+
+  // Response data
+  const data = {
+    move: 'up', // one of: ['up','down','left','right']
+    taunt: 'Outta my way, snake!', // optional, but encouraged!
   }
 
-  res.status(404)
-  res.send({
-    status: 404,
-    error: err.message || "These are not the snakes you're looking for"
-  })
-
-  return
+  return response.json(data)
 })
 
-// 500 handler middleware, respond with JSON only
-app.use(function (err, req, res, next) {
-  var statusCode = err.status || 500
+// --- SNAKE LOGIC GOES ABOVE THIS LINE ---
 
-  res.status(statusCode)
-  res.send({
-    status: statusCode,
-    error: err
-  })
+app.use('*', fallbackHandler)
+app.use(notFoundHandler)
+app.use(genericErrorHandler)
 
-  return
-})
-
-var server = app.listen(app.get('port'), function () {
+app.listen(app.get('port'), () => {
   console.log('Server listening on port %s', app.get('port'))
 })

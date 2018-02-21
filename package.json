@@ -17,14 +17,13 @@
     "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "foreman": "^2.0.0",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.15.1"
   },
   "main": "index.js",
   "engines": {
-    "node": "6.x"
+    "node": "8.x"
   },
   "scripts": {
-    "start": "nf start"
+    "start": "PORT=5000 nodemon -c 'node index.js'"
   }
 }
