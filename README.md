@@ -15,7 +15,7 @@ This client uses [Express4](http://expressjs.com/en/4x/api.html) for easy route 
 Fork and clone this repo:
 
 ```shell
-git clone git@github.com:sendwithus/battlesnake-node.git
+git clone git@github.com:battlesnakeio/starter-snake-node.git
 cd battlesnake-node
 ```
 
