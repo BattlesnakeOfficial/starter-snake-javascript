@@ -17,7 +17,7 @@
     "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.15.1"
+    "nodemon": "^1.18.4"
   },
   "main": "index.js",
   "engines": {
