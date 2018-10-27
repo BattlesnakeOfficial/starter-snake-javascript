@@ -24,6 +24,6 @@
     "node": "8.x"
   },
   "scripts": {
-    "start": "PORT=5000 nodemon -c 'node index.js'"
+    "start": "PORT=5000 nodemon -c index.js"
   }
 }
