@@ -14,16 +14,16 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^1.15.1"
+    "nodemon": "^1.18.4"
   },
   "main": "index.js",
   "engines": {
     "node": "8.x"
   },
   "scripts": {
-    "start": "PORT=5000 nodemon -c 'node index.js'"
+    "start": "PORT=5000 nodemon index.js"
   }
 }

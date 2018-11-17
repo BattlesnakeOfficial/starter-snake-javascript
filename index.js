@@ -28,8 +28,6 @@ app.post('/start', (request, response) => {
   // Response data
   const data = {
     color: '#DFFF00',
-    head_url: 'http://www.placecage.com/c/200/200', // optional, but encouraged!
-    taunt: "Let's do thisss thang!", // optional, but encouraged!
   }
 
   return response.json(data)
@@ -42,10 +40,19 @@ app.post('/move', (request, response) => {
   // Response data
   const data = {
     move: 'up', // one of: ['up','down','left','right']
-    taunt: 'Outta my way, snake!', // optional, but encouraged!
   }
 
   return response.json(data)
+})
+
+app.post('/end', (request, response) => {
+  // NOTE: Any cleanup when a game is complete.
+  return response.json({})
+})
+
+app.post('/ping', (request, response) => {
+  // Used for checking if this snake is still alive.
+  return response.json({});
 })
 
 // --- SNAKE LOGIC GOES ABOVE THIS LINE ---
