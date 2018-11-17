@@ -46,7 +46,13 @@ app.post('/move', (request, response) => {
 })
 
 app.post('/end', (request, response) => {
-  // NOTE: Do something to end the game
+  // NOTE: Any cleanup when a game is complete.
+  return response.json({})
+})
+
+app.post('/ping', (request, response) => {
+  // Used for checking if this snake is still alive.
+  return response.json({});
 })
 
 // --- SNAKE LOGIC GOES ABOVE THIS LINE ---
