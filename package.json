@@ -24,6 +24,10 @@
     "node": "8.x"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "PORT=5000 nodemon index.js"
+=======
+    "start": "PORT=5000 nodemon -c index.js"
+>>>>>>> master
   }
 }
