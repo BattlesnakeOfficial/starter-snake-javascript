@@ -64,3 +64,13 @@ View/stream server logs:
 ```shell
 heroku logs --tail
 ```
+
+## Deploying to [Zeit](https://zeit.co/)
+
+Install the now cli and sign up for a [zeit account](https://zeit.co/docs/v1/getting-started/introduction-to-now/).
+
+Deploying is simply:
+
+```shell
+now
+```
