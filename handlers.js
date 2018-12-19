@@ -4,13 +4,23 @@
  */
 
 const poweredByHandler = (req, res, next) => {
-  res.setHeader('X-Powered-By', 'BattleSnake')
+  res.setHeader('X-Powered-By', 'Battlesnake')
   next()
 }
 
 const fallbackHandler = (req, res, next) => {
+  console.dir(req.baseUrl)
+  // Root URL path
+  if (req.baseUrl === '') {
+    res.status(200)
+    return res.send(`
+      Battlesnake documentation can be found at
+      <a href="https://battlesnake.io/docs">https://battlesnake.io/docs</a>.
+    `)
+  }
+
   // Short-circuit favicon requests
-  if (req.url === '/favicon.ico') {
+  if (req.baseUrl === '/favicon.ico') {
     res.set({'Content-Type': 'image/x-icon'})
     res.status(200)
     res.end()
