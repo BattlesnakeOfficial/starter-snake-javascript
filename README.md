@@ -74,3 +74,7 @@ Deploying is simply:
 ```shell
 now
 ```
+
+## Questions
+
+Email [hello@battlesnake.com](mailto:hello@battlesnake.com), or tweet [@battlesnakeio](http://twitter.com/battlesnakeio).
