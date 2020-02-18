@@ -51,7 +51,7 @@ const genericErrorHandler = (err, req, res, next) => {
   res.status(statusCode)
   return res.send({
     status: statusCode,
-    error: err,
+    error: err.message,
   })
 }
 
