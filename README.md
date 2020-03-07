@@ -16,7 +16,7 @@ Fork and clone this repo:
 
 ```shell
 git clone git@github.com:battlesnakeio/starter-snake-node.git
-cd battlesnake-node
+cd starter-snake-node
 ```
 
 Install the client dependencies:
