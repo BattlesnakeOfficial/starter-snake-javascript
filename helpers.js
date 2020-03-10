@@ -1,6 +1,6 @@
 const findClosestFood = function(info) {
-  head = info.you.body[0];
-  foodArray = info.board.food;
+  const head = info.you.body[0];
+  const foodArray = info.board.food;
   let closestMealArray = [];
   const distancesToMeals = [];
   let minDist = 100;
@@ -20,6 +20,7 @@ const findClosestFood = function(info) {
   }
   return closestMealArray.filter(m => m.dist === minDist);
 };
+
 const moveList = [];
 const chooseDirection = function(closestMealArray, info) {
   const headPosition = info.you.body[0];
@@ -30,37 +31,22 @@ const chooseDirection = function(closestMealArray, info) {
   // console.log(headPosition);
   const rise = closestMealArray[0].y - headPosition.y;
   const run = closestMealArray[0].x - headPosition.x;
-
-  if (Math.abs(rise) >= Math.abs(run) && rise > 0) {
-    if (lastMove === 'up' && headPosition.x !== 1) {
-      moveList.push('left');
-      return 'left';
-    }
-    moveList.push('down');
-    return 'down';
-  } else if (Math.abs(rise) >= Math.abs(run) && rise < 0) {
-    if (lastMove === 'down' && headPosition.x !== 1) {
-      moveList.push('left');
-      return 'left';
-    }
-    moveList.push('up');
-    return 'up';
-  } else if (Math.abs(rise) <= Math.abs(run) && run > 0) {
-    if (lastMove === 'left' && headPosition.y !== 1) {
+  if ((info.turn = 1)) {
+    if (Math.abs(rise) >= Math.abs(run) && rise > 0) {
+      moveList.push('down');
+      return 'down';
+    } else if (Math.abs(rise) >= Math.abs(run) && rise < 0) {
       moveList.push('up');
       return 'up';
+    } else if (Math.abs(rise) <= Math.abs(run) && run > 0) {
+      moveList.push('right');
+      return 'right';
+    } else if (Math.abs(rise) <= Math.abs(run) && run < 0) {
+      moveList.push('left');
+      return 'left';
+    } else {
+      return 'you fucked up';
     }
-    moveList.push('right');
-    return 'right';
-  } else if (Math.abs(rise) <= Math.abs(run) && run < 0) {
-    if (lastMove === 'right' && headPosition.y !== 1) {
-      moveList.push('up');
-      return 'up';
-    }
-    moveList.push('left');
-    return 'left';
-  } else {
-    return 'you fucked up';
   }
 };
 
