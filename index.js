@@ -8,6 +8,7 @@ const {
   genericErrorHandler,
   poweredByHandler
 } = require('./handlers.js');
+const help = require('./helpers.js');
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -38,6 +39,9 @@ app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const info = request.body;
 
+  const closestFoodArray = help.findClosestFood(info);
+  const direction = help.chooseDirection(closestFoodArray, info.you.body[0]);
+  console.log(direction);
   // Response data
   const data = {
     move: 'up' // one of: ['up','down','left','right']
