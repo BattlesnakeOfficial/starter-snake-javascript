@@ -39,7 +39,7 @@ app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const info = request.body;
   const closestFoodArray = help.findClosestFood(info);
-  const direction = help.chooseDirection(closestFoodArray, info.you.body[0]);
+  const direction = help.chooseDirection(closestFoodArray, info);
 
   // Response data
   const data = {

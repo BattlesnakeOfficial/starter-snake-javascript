@@ -21,7 +21,9 @@ const findClosestFood = function(info) {
   return closestMealArray.filter(m => m.dist === minDist);
 };
 const moveList = [];
-const chooseDirection = function(closestMealArray, headPosition) {
+const chooseDirection = function(closestMealArray, info) {
+  const headPosition = info.you.body[0];
+  const border = [info.board.width, info.board.height];
   console.log(moveList);
   let lastMove = moveList[moveList.length];
   // console.log(closestMealArray);
@@ -30,28 +32,28 @@ const chooseDirection = function(closestMealArray, headPosition) {
   const run = closestMealArray[0].x - headPosition.x;
 
   if (Math.abs(rise) >= Math.abs(run) && rise > 0) {
-    if (lastMove === 'up') {
+    if (lastMove === 'up' && headPosition.x !== 1) {
       moveList.push('left');
       return 'left';
     }
     moveList.push('down');
     return 'down';
   } else if (Math.abs(rise) >= Math.abs(run) && rise < 0) {
-    if (lastMove === 'down') {
+    if (lastMove === 'down' && headPosition.x !== 1) {
       moveList.push('left');
       return 'left';
     }
     moveList.push('up');
     return 'up';
   } else if (Math.abs(rise) <= Math.abs(run) && run > 0) {
-    if (lastMove === 'left') {
+    if (lastMove === 'left' && headPosition.y !== 1) {
       moveList.push('up');
       return 'up';
     }
     moveList.push('right');
     return 'right';
   } else if (Math.abs(rise) <= Math.abs(run) && run < 0) {
-    if (lastMove === 'right') {
+    if (lastMove === 'right' && headPosition.y !== 1) {
       moveList.push('up');
       return 'up';
     }
