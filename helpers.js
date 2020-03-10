@@ -21,9 +21,10 @@ const findClosestFood = function(info) {
   return closestMealArray.filter(m => m.dist === minDist);
 };
 
-const chooseDirection = function(closestMealArray, headPosition) {
-  console.log(closestMealArray);
-  console.log(headPosition);
+const chooseDirection = function(closestMealArray, headPosition, moveList) {
+  console.log(moveList);
+  // console.log(closestMealArray);
+  // console.log(headPosition);
   const rise = closestMealArray[0].y - headPosition.y;
   const run = closestMealArray[0].x - headPosition.x;
 
