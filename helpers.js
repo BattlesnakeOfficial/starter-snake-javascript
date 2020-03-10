@@ -20,8 +20,8 @@ const findClosestFood = function(info) {
   }
   return closestMealArray.filter(m => m.dist === minDist);
 };
-
-const chooseDirection = function(closestMealArray, headPosition, moveList) {
+const moveList = [];
+const chooseDirection = function(closestMealArray, headPosition) {
   console.log(moveList);
   // console.log(closestMealArray);
   // console.log(headPosition);
@@ -29,12 +29,16 @@ const chooseDirection = function(closestMealArray, headPosition, moveList) {
   const run = closestMealArray[0].x - headPosition.x;
 
   if (Math.abs(rise) >= Math.abs(run) && rise > 0) {
+    moveList.push('down');
     return 'down';
   } else if (Math.abs(rise) >= Math.abs(run) && rise < 0) {
+    moveList.push('up');
     return 'up';
   } else if (Math.abs(rise) <= Math.abs(run) && run > 0) {
+    moveList.push('right');
     return 'right';
   } else if (Math.abs(rise) <= Math.abs(run) && run < 0) {
+    moveList.push('left');
     return 'left';
   } else {
     return 'you fucked up';
