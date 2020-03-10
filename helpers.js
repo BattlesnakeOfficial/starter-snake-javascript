@@ -23,21 +23,38 @@ const findClosestFood = function(info) {
 const moveList = [];
 const chooseDirection = function(closestMealArray, headPosition) {
   console.log(moveList);
+  let lastMove = moveList[moveList.length];
   // console.log(closestMealArray);
   // console.log(headPosition);
   const rise = closestMealArray[0].y - headPosition.y;
   const run = closestMealArray[0].x - headPosition.x;
 
   if (Math.abs(rise) >= Math.abs(run) && rise > 0) {
+    if (lastMove === 'up') {
+      moveList.push('left');
+      return 'left';
+    }
     moveList.push('down');
     return 'down';
   } else if (Math.abs(rise) >= Math.abs(run) && rise < 0) {
+    if (lastMove === 'down') {
+      moveList.push('left');
+      return 'left';
+    }
     moveList.push('up');
     return 'up';
   } else if (Math.abs(rise) <= Math.abs(run) && run > 0) {
+    if (lastMove === 'left') {
+      moveList.push('up');
+      return 'up';
+    }
     moveList.push('right');
     return 'right';
   } else if (Math.abs(rise) <= Math.abs(run) && run < 0) {
+    if (lastMove === 'right') {
+      moveList.push('up');
+      return 'up';
+    }
     moveList.push('left');
     return 'left';
   } else {
