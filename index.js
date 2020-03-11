@@ -11,8 +11,8 @@ const {
 // Helper functions
 const chooseDirection = require('./chooseDirection.js');
 const rankFood = require('./rankFood.js');
-const getOpenSquares = require('./getOpenSquares.js');
-const rankDanger = require('./rankDanger.js');
+const { getOpenSquares } = require('./getOpenSquares.js');
+const getDanger = require('./getDanger.js');
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -23,7 +23,12 @@ app.use(bodyParser.json());
 app.use(poweredByHandler);
 
 // --- SNAKE LOGIC GOES BELOW THIS LINE ---
-
+const directionsTest = [
+  {},
+  {},
+  {},
+  {}
+]
 // Handle POST request to '/start'
 app.post('/start', (request, response) => {
   // NOTE: Do something here to start the game
@@ -40,9 +45,15 @@ app.post('/test', (request, response) => {
   const info = request.body;
   // Response data
 
-  const danger = getDanger(info, directionsTest, [true, false, true, true] )
+  const directions = rankFood(info.you.body[0], info.board.food, info);
 
-  return response.json(danger);
+  const dangerDirections = getDanger(info, directions, getOpenSquares(info));
+
+  console.log(dangerDirections)
+  const direction = chooseDirection(info, dangerDirections);
+
+
+  return response.json(direction);
 });
 
 // Handle POST request to '/move'

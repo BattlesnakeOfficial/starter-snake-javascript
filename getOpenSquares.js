@@ -52,11 +52,7 @@ const getOpenSquares = function(info) {
   return openSquares;
 };
 
-<<<<<<< HEAD:getOpenSquares-helpers.js
 module.exports = {
   getOpenSquares,
   getOpponentsPositions
 };
-=======
-module.exports = getOpenSquares;
->>>>>>> 4d0b751a3785feab0f70488287dff1addedc3510:getOpenSquares.js

@@ -1,4 +1,6 @@
-const rankFood = function(head, foodArray) {
+const { getOpenSquares } = require('./getOpenSquares');
+
+const rankFood = function(head, foodArray, info) {
   //making variables at the locations around the snake head.
   const head_up = { ...head, y: head.y - 1 };
   const head_right = { ...head, x: head.x + 1 };
@@ -6,6 +8,9 @@ const rankFood = function(head, foodArray) {
   const head_left = { ...head, x: head.x - 1 };
   const squaresToCheck = [head_up, head_right, head_down, head_left];
   const squareRankArray = [];
+
+  const openSquares = getOpenSquares(info)
+
   let ind = 0;
   if (foodArray) {
     for (const square of squaresToCheck) {
