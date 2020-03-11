@@ -8,16 +8,16 @@ const {
   genericErrorHandler,
   poweredByHandler
 } = require('./handlers.js');
-const help = require('./helpers.js');
-const open = require('./getOpenSquares-helpers.js');
-const getDanger = require('./getDanger.js');
+// Helper functions
+const chooseDirection = require('./chooseDirection.js');
+const rankFood = require('./rankFood.js');
+const getOpenSquares = require('./getOpenSquares.js');
+const rankDanger = require('./rankDanger.js');
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
 app.set('port', process.env.PORT || 9001);
-
 app.enable('verbose errors');
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(poweredByHandler);
@@ -27,7 +27,6 @@ app.use(poweredByHandler);
 // Handle POST request to '/start'
 app.post('/start', (request, response) => {
   // NOTE: Do something here to start the game
-  const info = request.body;
   // Response data
   const data = {
     color: '#DFFF00'
@@ -40,17 +39,14 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const info = request.body;
-  const dir = help.findClosestFood(info);
-  // const direction = help.chooseDirection(closestFoodArray, info);
-  const openSquares = open.getOpenSquares(info);
-  // Response data
-
-  const final = getDanger(info, dir, openSquares);
-  console.log('final: ', final);
-  const data = {
-    move: 'up' // one of: ['up','down','left','right']
-  };
-  console.log('data: ', data);
+  const head = info.you.body[0];
+  const foodArray = info.board.food;
+  const hunger = info.you.health < 40;
+  const possibleMoves = getOpenSquares(info);
+  let rankedMoves = rankFood(head, foodArray, possibleMoves);
+  rankedMoves = rankDanger(info, rankedMoves);
+  const move = chooseDirection(rankedMoves, hunger);
+  const data = { move };
   return response.json(data);
 });
 

@@ -52,6 +52,4 @@ const getOpenSquares = function(info) {
   return openSquares;
 };
 
-module.exports = {
-  getOpenSquares
-};
+module.exports = getOpenSquares;
