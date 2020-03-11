@@ -40,17 +40,19 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const info = request.body;
-  const dir = help.findClosestFood(info);
-  // const direction = help.chooseDirection(closestFoodArray, info);
+  const head = info.you.body[0];
   const openSquares = open.getOpenSquares(info);
+  const dir = help.findClosestFood(info, openSquares);
+  // const direction = help.chooseDirection(closestFoodArray, info);
+
   // Response data
 
   const final = getDanger(info, dir, openSquares);
-  console.log('final: ', final);
+  // console.log('final: ', final);
   const data = {
     move: 'up' // one of: ['up','down','left','right']
   };
-  console.log('data: ', data);
+  // console.log('data: ', data);
   return response.json(data);
 });
 
