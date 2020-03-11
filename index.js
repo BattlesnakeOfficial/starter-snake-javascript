@@ -9,6 +9,8 @@ const {
   poweredByHandler
 } = require('./handlers.js');
 const help = require('./helpers.js');
+const open = require('./getOpenSquares-helpers.js');
+const getDanger = require('./getDanger.js');
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -38,14 +40,17 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const info = request.body;
-  const closestFoodArray = help.findClosestFood(info);
-  const direction = help.chooseDirection(closestFoodArray, info);
-
+  const dir = help.findClosestFood(info);
+  // const direction = help.chooseDirection(closestFoodArray, info);
+  const openSquares = open.getOpenSquares(info);
   // Response data
-  const data = {
-    move: direction // one of: ['up','down','left','right']
-  };
 
+  const final = getDanger(info, dir, openSquares);
+  console.log('final: ', final);
+  const data = {
+    move: 'up' // one of: ['up','down','left','right']
+  };
+  console.log('data: ', data);
   return response.json(data);
 });
 
