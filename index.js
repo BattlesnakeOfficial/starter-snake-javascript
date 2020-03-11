@@ -42,15 +42,15 @@ app.post('/start', (request, response) => {
   return response.json(data);
 });
 
-// app.post('/test', (request, response) => {
-//   // NOTE: Do something here to start the game
-//   const info = request.body;
-//   // Response data
+app.post('/test', (request, response) => {
+  // NOTE: Do something here to start the game
+  const info = request.body;
+  // Response data
 
-//   const danger = getDanger(info, directionsTest, [true, false, true, true] )
+  const danger = getDanger(info, directionsTest, [true, false, true, true] )
 
-//   return response.json(danger);
-// });
+  return response.json(danger);
+});
 
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
