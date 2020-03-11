@@ -58,7 +58,6 @@ const chooseDirection = function(closestMealArray, info) {
 };
 
 module.exports = {
-  getOpenSquares,
   findClosestFood,
   chooseDirection
 };
