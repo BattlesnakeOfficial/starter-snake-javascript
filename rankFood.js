@@ -1,4 +1,4 @@
-const rankFood = function(head, foodArray, possibleMoves) {
+const rankFood = function(head, foodArray) {
   //making variables at the locations around the snake head.
   const head_up = { ...head, y: head.y - 1 };
   const head_right = { ...head, x: head.x + 1 };
@@ -6,26 +6,34 @@ const rankFood = function(head, foodArray, possibleMoves) {
   const head_left = { ...head, x: head.x - 1 };
   const squaresToCheck = [head_up, head_right, head_down, head_left];
   const squareRankArray = [];
+  let ind = 0;
+  if (foodArray) {
+    for (const square of squaresToCheck) {
+      let squareRank = {};
+      let ranking = 0;
 
-  for (const square of squaresToCheck) {
-    let squareRank = {};
-    let ranking = 0;
+      if (openSquares[ind]) {
+        //check each directections proximity to food.
+        for (const meal of foodArray) {
+          let rise = meal.y - square.y;
+          let run = meal.x - square.x;
+          let distFromSquare = Math.sqrt(rise * rise + run * run);
+          let weight = 1 / distFromSquare;
+          ranking += weight;
+        }
 
-    //check each directections proximity to food.
-    for (const meal of foodArray) {
-      let rise = meal.y - square.y;
-      let run = meal.x - square.x;
-      let distFromSquare = Math.sqrt(rise * rise + run * run);
-      let weight = 1 / distFromSquare;
-      ranking += weight;
+        //after each proximity is calculated push fraction to an array.
+        squareRank.food = ranking;
+      }
+      ind++;
+      squareRankArray.push(squareRank);
     }
-
-    //after each proximity is calculated push fraction to an array.
-    squareRank.food = ranking;
-    squareRankArray.push(squareRank);
+    // console.log(squareRankArray);
+    return squareRankArray;
   }
-  // console.log(squareRankArray);
-  return squareRankArray;
+
+  //only returns this array of empty objects if there is no food on the board.
+  return [{}, {}, {}, {}];
 };
 
 module.exports = rankFood;
