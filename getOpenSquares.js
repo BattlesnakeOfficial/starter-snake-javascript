@@ -29,14 +29,14 @@ const getOpenSquares = function(info) {
   }
   if (
     JSON.stringify(east) === JSON.stringify(neck) ||
-    east.x > info.board.width - 1 ||
+    east.x >= info.board.width - 1 ||
     filledSquares.includes(JSON.stringify(east))
   ) {
     openSquares[1] = false;
   }
   if (
     JSON.stringify(south) === JSON.stringify(neck) ||
-    south.y > info.board.length - 1 ||
+    south.y >= info.board.length - 1 ||
     filledSquares.includes(JSON.stringify(south))
   ) {
     openSquares[2] = false;
