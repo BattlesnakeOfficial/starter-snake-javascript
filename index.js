@@ -9,6 +9,14 @@ const {
   poweredByHandler
 } = require('./handlers.js');
 const help = require('./helpers.js');
+const getDanger = require('./getDanger');
+
+const directionsTest = [
+  {},
+  {},
+  {},
+  {},
+]
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -33,6 +41,16 @@ app.post('/start', (request, response) => {
 
   return response.json(data);
 });
+
+// app.post('/test', (request, response) => {
+//   // NOTE: Do something here to start the game
+//   const info = request.body;
+//   // Response data
+
+//   const danger = getDanger(info, directionsTest, [true, false, true, true] )
+
+//   return response.json(danger);
+// });
 
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {

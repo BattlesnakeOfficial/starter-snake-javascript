@@ -5,7 +5,6 @@ const getDanger = (body, directions, possibleSquares) => {
     let danger = 0;
     let steppedSquare = getStep(i ,body.you.body[0])
     heads.forEach(head => {
-      console.log(head, steppedSquare, body.you.body[0])
       danger += 1 / getRadialDistance(head, steppedSquare)
     });
     directions[i].danger = danger;
