@@ -4,7 +4,7 @@ This is a basic implementation of the [Battlesnake API](https://docs.battlesnake
 
 ### Technologies
 
-This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the docks provide information on handling incoming JSON params and creating writing responses.
+This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the documentation provide information on handling incoming JSON params and building responses.
 
 ### Prerequisites
 
