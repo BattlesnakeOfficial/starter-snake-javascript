@@ -1,80 +1,176 @@
-# starter-snake-node(js)
+# A simple [Battlesnake](http://play.battlesnake.com) written in Javascript for NodeJS.
 
-A simple [Battlesnake AI](https://battlesnake.io) written in Javascript for NodeJS.
+This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/snake-api). It's a great starting point for anyone wanting to program their first Battlesnake using Javascript. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
 
-To get started you'll need a working NodeJS development environment, and at least read the Heroku docs on [deploying a NodeJS app](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
+### Technologies
 
-If you haven't setup a NodeJS development environment before, read [how to get started with NodeJS](http://nodejs.org/documentation/tutorials/). You'll also need [npm](https://www.npmjs.com/) for easy JS dependency management.
+This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the docks provide information on handling incoming JSON params and creating writing responses.
 
-This client uses [Express4](http://expressjs.com/en/4x/api.html) for easy route management, read up on the docs to learn more about reading incoming JSON params, writing responses, etc.
+### Prerequisites
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+* [GitHub Account](https://github.com/) and [Git Command Line](https://www.atlassian.com/git/tutorials/install-git)
+* [Heroku Account](https://signup.heroku.com/) and [Heroku Command Line](https://devcenter.heroku.com/categories/command-line)
+* [Battlesnake Account](https://play.battlesnake.com)
 
-## Running the AI locally
 
-Fork and clone this repo:
 
-```shell
-git clone git@github.com:battlesnakeio/starter-snake-node.git
-cd starter-snake-node
+## Deploying Your First Battlesnake
+
+1. [Fork this repo](https://github.com/BattlesnakeOfficial/starter-snake-node/fork) into your GitHub Account.
+
+2. [Clone your forked repo](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) into your local environment.
+    ```shell
+    git clone git@github.com:[YOUR-GITHUB-USERNAME]/starter-snake-node.git
+    ```
+
+3. [Create a new Heroku app](https://devcenter.heroku.com/articles/creating-apps) to run your Battlesnake.
+    ```shell
+    heroku create [YOUR-APP-NAME]
+    ```
+
+4. [Deploy your Battlesnake code to Heroku](https://devcenter.heroku.com/articles/git#deploying-code).
+    ```shell
+    git push heroku master
+    ```
+
+5. Open your new Heroku app in your browser.
+    ```shell
+    heroku open
+    ```
+    If everything was successful, you should see the following text:
+    ```
+    Your Battlesnake is alive!
+    ```
+
+6. Optionally, you can view your server logs using the [Heroku logs command](https://devcenter.heroku.com/articles/logging#log-retrieval) `heroku logs --tail`. The `--tail` option will show a live feed of your logs in real-time.
+
+**At this point your Battlesnake is live and ready to enter games!**
+
+
+## Registering Your Battlesnake and Creating Your First Game
+
+1. Log in to [play.battlesnake.com](https://play.battlesnake.com/login/).
+
+2. [Create a new Battlesnake](https://play.battlesnake.com/account/snakes/create/). Give it a name and complete the form using the URL for your Heroku app.
+
+3. Once your Battlesnake has been saved you can [create a new game](https://play.battlesnake.com/account/games/create/) and add your Battlesnake to it. Type your Battlesnake's name into the search field and click "Add" to add it to the game. Then click "Create Game" to start the game.
+
+4. You should see a brand new Battlesnake game with your Battlesnake in it! Yay! Press "Play" to start the game and watch how your Battlesnake behaves. By default your Battlesnake should move randomly around the board.
+
+5. Optionally, open your [Heroku logs](https://devcenter.heroku.com/articles/logging#log-retrieval) while the game is running to see your Battlesnake receiving API calls and responding with its moves.
+
+Repeat steps 3 and 4 every time you want to see how your Battlesnake behaves. It's common for Battlesnake developers to repeat these steps often as they make their Battlesnake smarter.
+
+**At this point you should have a registered Battlesnake and be able to create games!**
+
+
+
+## Customizing Your Battlesnake
+
+Now you're ready to start customizing your Battlesnake and improving its algorithm.
+
+### Changing Appearance
+
+Locate the `/start` endepoint inside [index.js](index.js#L27). You should see a line that looks like this:
+```javascript
+  // Response data
+  const data = {
+    color: '#888888',
+    headType: "regular",
+    tailType: "regular"
+  }
 ```
 
-Install the client dependencies:
+This function is called every time a new game starts. Your response determines what your Battlesnake will look like in that game. See [Customizing Your Battlesnake](https://docs.battlesnake.com/snake-customization) for how to customize your Battlesnake's appearance using these values.
+
+### Changing Behavior
+
+On every turn of each game your Battlesnake receives information about the game board and must decide its next move.
+
+Locate the `/move` endpoint inside [index.js](index.js#L43). You should see code that looks like this:
+```javascript
+  var data = request.body;
+  // Choose a random direction to move in
+  possible_moves = ["up", "down", "left", "right"]
+  var choice = Math.floor(Math.random() * possible_moves.length);
+  var snake_move = possible_moves[choice];
+
+  console.log("MOVE: " + snake_move);
+  return response.json({ move: snake_move })
+```
+
+Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `data` variable) and make an intelligent decision about where your Battlesnake should move next. 
+
+See the [Battlesnake Rules](https://docs.battlesnake.com/rules) for more information on playing the game, moving around the board, and improving your algorithm.
+
+### Updating Your Battlesnake
+
+After making changes, commit them using git and deploy your changes to Heroku.
+```shell
+git add .
+git commit -m "update my battlesnake's appearance"
+git push heroku master
+```
+
+Once Heroku has updated you can [create a new game](https://play.battlesnake.com/account/games/create/) with your Battlesnake to view your latest changes in action.
+
+**At this point you should feel comfortable making changes to your code and deploying those changes to Heroku!**
+
+
+
+## Developing Your Battlesnake Further
+
+Now you have everything you need to start making your Battlesnake super smart! Here are a few more helpful tips:
+
+* Keeping your logs open in a second window (using `heroku logs --tail`) is helpful for watching server activity and debugging any problems with your Battlesnake.
+
+* You can use the Javascript [console.log](https://nodejs.org/api/console.html) to output information to your server logs. This is very useful for debugging logic in your code during Battlesnake games.
+
+* Review the [Battlesnake API Docs](https://docs.battlesnake.com/snake-api) to learn what information is provided with each command. You can also output the data to your logs:
+```javascript
+app.post('/move', (request, response) => {
+  var data = request.body;
+  console.log("Data: %s", data);
+  return response.json({ move: "up" })
+}
+```
+
+* When viewing a Battlesnake game you can pause playback and step forward/backward one frame at a time. If you review your logs at the same time, you can see what decision your Battlesnake made on each turn.
+
+
+
+## Joining a Battlesnake Arena
+
+Once you've made your Battlesnake behave and survive on its own, you can enter it into the [Global Battlesnake Arena](https://play.battlesnake.com/arena/global) to see how it performs against other Battlesnakes worldwide.
+
+Arenas will regularly create new games and rank Battlesnakes based on their results. They're a good way to get regular feedback on how well your Battlesnake is performing, and a fun way to track your progress as you develop your algorithm.
+
+
+
+## (Optional) Running Your Battlesnake Locally
+
+Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [NodeJS](https://nodejs.dev/) and [npm](https://docs.npmjs.com/getting-started/). 
+
+Once installed, run this to install all of the client dependencies.
 
 ```shell
 npm install
 ```
 
-Create an `.env` file in the root of the project and add your environment variables (optional).
-
-Run the server with auto-reloading on file change:
+Than run the server:
 
 ```shell
 npm start
 ```
 
-Test the client in your browser at <http://localhost:5000>
+**Note:** You cannot create games on [play.battlesnake.com](https://play.battlesnake.com) using a locally running Battlesnake unless you install and use a port forwarding tool like [ngrok](https://ngrok.com/).
 
-## Deploying to Heroku
 
-Click the Deploy to Heroku button at the top or use the command line commands below.
+---
 
-Create a new NodeJS Heroku app:
 
-```shell
-heroku create [APP_NAME]
-```
+### Questions?
 
-Push code to Heroku servers:
+All documentation is available at [docs.battlesnake.com](https://docs.battlesnake.com), including detailed Guides, API References, and Tips.
 
-```shell
-git push heroku master
-```
-
-Open Heroku app in browser:
-
-```shell
-heroku open
-```
-
-Or go directly via <http://APP_NAME.herokuapp.com>
-
-View/stream server logs:
-
-```shell
-heroku logs --tail
-```
-
-## Deploying to [Zeit](https://zeit.co/)
-
-Install the now cli and sign up for a [zeit account](https://zeit.co/docs/v1/getting-started/introduction-to-now/).
-
-Deploying is simply:
-
-```shell
-now
-```
-
-## Questions
-
-Email [hello@battlesnake.com](mailto:hello@battlesnake.com), or tweet [@battlesnakeio](http://twitter.com/battlesnakeio).
+You can also join the [Battlesnake Developer Community on Slack](https://play.battlesnake.com/slack). We have a growing community of Battlesnake developers of all skill levels wanting to help everyone succeed and have fun with Battlesnake :)

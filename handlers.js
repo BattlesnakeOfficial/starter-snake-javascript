@@ -13,15 +13,13 @@ const fallbackHandler = (req, res, next) => {
   // Root URL path
   if (req.baseUrl === '') {
     res.status(200)
-    return res.send(`
-      Battlesnake documentation can be found at
-       <a href="https://docs.battlesnake.io">https://docs.battlesnake.io</a>.
-    `)
+    // If you open your snake URL in a browser you should see this message.
+    return res.send(`Your Battlesnake is alive!`)
   }
 
   // Short-circuit favicon requests
   if (req.baseUrl === '/favicon.ico') {
-    res.set({'Content-Type': 'image/x-icon'})
+    res.set({ 'Content-Type': 'image/x-icon' })
     res.status(200)
     res.end()
     return next()
