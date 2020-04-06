@@ -42,8 +42,8 @@ This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https:
 
    If everything was successful, you should see the following text:
 
-   ```plaintext
-   Your Battlesnake is alive!
+   ```json
+   { "message": "Your Battlesnake is alive!" }
    ```
 
 6. Optionally, you can view your server logs using the [Heroku logs command](https://devcenter.heroku.com/articles/logging#log-retrieval) `heroku logs --tail`. The `--tail` option will show a live feed of your logs in real-time.
