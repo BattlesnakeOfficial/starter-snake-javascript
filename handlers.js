@@ -26,7 +26,7 @@ const fallbackHandler = (req, res, next) => {
     return res.send({ message: 'Your Battlesnake is alive!' });
   }
 
-  // Short-circuit favicon requests
+  // Short-circuit default browser favicon requests
   if (req.baseUrl === '/favicon.ico') {
     res.set({ 'Content-Type': 'image/x-icon' });
     res.status(200);
@@ -40,9 +40,6 @@ const fallbackHandler = (req, res, next) => {
 };
 
 const genericErrorHandler = (err, _, res, next) => {
-  // This will never be called but to satisfy Typescript, we make use of it.
-  if (!err) next();
-
   if (err.status === 404) {
     res.status(404);
     return res.send({
