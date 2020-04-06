@@ -1,10 +1,10 @@
 {
-  "name": "battlesnake-node",
+  "name": "node-starter-snake",
   "description": "A simple BattleSnake AI written in Javascript for NodeJS",
   "version": "0.0.0",
   "private": true,
-  "author": "Sendwithus",
-  "repository": "https://github.com/sendwithus/battlesnake-node",
+  "author": "BattlesnakeOfficial",
+  "repository": "https://github.com/BattlesnakeOfficial/starter-snake-node",
   "licenses": [
     {
       "type": "WTFPL",
@@ -12,17 +12,17 @@
     }
   ],
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cross-env": "^5.2.0",
-    "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^2.0.2"
   },
   "main": "index.js",
   "engines": {
-    "node": ">=8.x"
+    "node": ">=12.x"
   },
   "scripts": {
     "start": "cross-env PORT=5000 nodemon index.js"
