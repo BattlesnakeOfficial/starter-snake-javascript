@@ -25,7 +25,6 @@ app.use(poweredByHandler);
 // TODO: Use this function to decide how your snake is going to look on the board.
 app.post('/start', (request, response) => {
   console.log('START');
-  var data = request.body;
 
   // Response data
   const data = {
