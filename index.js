@@ -28,7 +28,8 @@ app.post('/start', (request, response) => {
 
   // Response data
   const data = {
-    color: '#888888', // Choose a hex colour code to style your snake https://www.google.com/search?q=hex+colour+picker
+    color: '#888888', // Choose a hex colour code to style your snake
+                      // https://www.google.com/search?q=hex+colour+picker
     headType: 'regular',
     tailType: 'regular',
   };
@@ -40,7 +41,7 @@ app.post('/start', (request, response) => {
 // Valid moves are "up", "down", "left", or "right".
 // TODO: Use the information in request.body to decide your next move.
 app.post('/move', (request, response) => {
-  console.log(request.body);
+  const data = request.body;
 
   // Choose a random direction to move in
   possible_moves = ['up', 'down', 'left', 'right'];
