@@ -46,12 +46,12 @@ app.post('/move', (request, response) => {
   const data = request.body;
 
   // Choose a random direction to move in for now
-  const possible_moves = ['up', 'down', 'left', 'right'];
-  const choice = Math.floor(Math.random() * possible_moves.length);
-  const snake_move = possible_moves[choice];
+  const possibleMoves = ['up', 'down', 'left', 'right'];
+  const choice = Math.floor(Math.random() * possibleMoves.length);
+  const snakeMove = possibleMoves[choice];
 
-  console.log(`MOVE: ${snake_move}`);
-  return response.json({ move: snake_move });
+  console.log(`MOVE: ${snakeMove}`);
+  return response.json({ move: snakeMove });
 });
 
 // This function is called when a game your snake was in ends.
