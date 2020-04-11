@@ -1,6 +1,6 @@
 {
-  "name": "node-starter-snake",
-  "description": "A simple BattleSnake AI written in Javascript for NodeJS",
+  "name": "starter-snake-node",
+  "description": "A simple BattleSnake AI written in Javascript for Node.js",
   "version": "0.0.0",
   "private": true,
   "author": "BattlesnakeOfficial",
