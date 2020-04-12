@@ -48,9 +48,13 @@ const genericErrorHandler = (err, _, res, next) => {
     });
   }
 
+  if (process.env.NODE_ENV !== 'production') {
+    console.error(err.stack);
+  }
+
   const { status } = err;
 
-  res.status(status);
+  res.status(status || 500);
   return res.send({
     error: err,
     status,
