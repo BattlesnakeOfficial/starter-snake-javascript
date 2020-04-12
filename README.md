@@ -1,10 +1,10 @@
-# A simple [Battlesnake](http://play.battlesnake.com) written in Javascript for NodeJS.
+# A simple [Battlesnake](http://play.battlesnake.com) written in Javascript for Node.js
 
 This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/snake-api). It's a great starting point for anyone wanting to program their first Battlesnake using Javascript. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
 
 ## Technologies
 
-This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the documentation provide information on handling incoming JSON params and building responses.
+This Battlesnake uses [Javascript](https://www.javascript.com/), [Node.js](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the documentation provide information on handling incoming JSON params and building responses.
 
 ## Prerequisites
 
@@ -148,7 +148,7 @@ Arenas will regularly create new games and rank Battlesnakes based on their resu
 
 ## (Optional) Running Your Battlesnake Locally
 
-Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [NodeJS](https://nodejs.dev/) and [npm](https://docs.npmjs.com/getting-started/).
+Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [Node.js](https://nodejs.dev/) and [npm](https://docs.npmjs.com/getting-started/).
 
 Once installed, run this to install all of the client dependencies.
 
