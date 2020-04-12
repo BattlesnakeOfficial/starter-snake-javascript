@@ -25,12 +25,12 @@ app.use(poweredByHandler);
 // TODO: Use this function to decide how your snake is going to look on the board.
 app.post('/start', (request, response) => {
   console.log('START');
-  const data = request.body;
+  // const data = request.body;
 
   // Response data
   const data = {
     color: '#888888', // Choose a hex colour code to style your snake
-                      // https://www.google.com/search?q=hex+colour+picker
+    // https://www.google.com/search?q=hex+colour+picker
     headType: 'regular',
     tailType: 'regular',
   };
@@ -43,7 +43,7 @@ app.post('/start', (request, response) => {
 // TODO: Use the information in request.body to decide your next move.
 app.post('/move', (request, response) => {
   // Do something with this data eventually
-  const data = request.body;
+  // const data = request.body;
 
   // Choose a random direction to move in for now
   const possibleMoves = ['up', 'down', 'left', 'right'];
