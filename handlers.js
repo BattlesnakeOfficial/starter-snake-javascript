@@ -5,7 +5,7 @@
 
 // CustomError class courtesy of https://medium.com/@xjamundx/custom-javascript-errors-in-es6-aa891b173f87
 class CustomError extends Error {
-  constructor(m = "", options = { status }) {
+  constructor(m = '', options = { status }) {
     super(m)
     Error.captureStackTrace(this, CustomError)
 
@@ -15,27 +15,27 @@ class CustomError extends Error {
 }
 
 const poweredByHandler = (_, res, next) => {
-  res.setHeader("X-Powered-By", "Battlesnake")
+  res.setHeader('X-Powered-By', 'Battlesnake')
   next()
 }
 
 const fallbackHandler = (req, res, next) => {
   // Root URL path
-  if (req.baseUrl === "") {
+  if (req.baseUrl === '') {
     res.status(200)
-    return res.send({ message: "Your Battlesnake is alive!" })
+    return res.send({ message: 'Your Battlesnake is alive!' })
   }
 
   // Short-circuit default browser favicon requests
-  if (req.baseUrl === "/favicon.ico") {
-    res.set({ "Content-Type": "image/x-icon" })
+  if (req.baseUrl === '/favicon.ico') {
+    res.set({ 'Content-Type': 'image/x-icon' })
     res.status(200)
     res.end()
     return next()
   }
 
   // Reroute all 404 routes to genericErrorHandler
-  const err = new CustomError("Not found", { status: 404 })
+  const err = new CustomError('Not found', { status: 404 })
   return next(err)
 }
 
@@ -51,7 +51,7 @@ const genericErrorHandler = (err, _, res, next) => {
   const { status } = err
 
   // Express swallows the error stack so we make sure to output it here
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     console.error(err.stack)
   }
 
