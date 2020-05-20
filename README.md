@@ -1,10 +1,10 @@
-# A simple [Battlesnake](http://play.battlesnake.com) written in Javascript for NodeJS.
+# A simple [Battlesnake](http://play.battlesnake.com) written in JavaScript for Node.js.
 
-This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/snake-api). It's a great starting point for anyone wanting to program their first Battlesnake using Javascript. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
+This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/references/api). It's a great starting point for anyone wanting to program their first Battlesnake using Python. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
 
 ### Technologies
 
-This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https://nodejs.dev/), and [Heroku](https://heroku.com). You will also need [npm](https://docs.npmjs.com/getting-started/) to assist with Javascript dependency management. [Express4](http://expressjs.com/en/4x/api.html) is used for route management, the documentation provide information on handling incoming JSON params and building responses.
+This Battlesnake uses [JavaScript](https://www.javascript.com/), [Node.js](https://nodejs.dev/), [Express](https://expressjs.com/), and [Heroku](https://heroku.com).
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ This Battlesnake uses [Javascript](https://www.javascript.com/), [NodeJS](https:
     ```
     If everything was successful, you should see the following text:
     ```
-    Your Battlesnake is alive!
+    {"apiversion": "1", "author": "", "color": "#888888", "head": "default", "tail": "default"}
     ```
 
 6. Optionally, you can view your server logs using the [Heroku logs command](https://devcenter.heroku.com/articles/logging#log-retrieval) `heroku logs --tail`. The `--tail` option will show a live feed of your logs in real-time.
@@ -71,37 +71,26 @@ Now you're ready to start customizing your Battlesnake and improving its algorit
 
 ### Changing Appearance
 
-Locate the `/start` endepoint inside [index.js](index.js#L27). You should see a line that looks like this:
+Locate the `handleIndex` function inside [index.js](index.js#L17). You should see a line that looks like this:
 ```javascript
-  // Response data
-  const data = {
-    color: '#888888',
-    headType: "regular",
-    tailType: "regular"
-  }
+var battlesnakeInfo = {
+  apiversion: '1',
+  author: '',
+  color: '#888888',
+  head: 'default',
+  tail: 'default'
+}
 ```
 
-This function is called every time a new game starts. Your response determines what your Battlesnake will look like in that game. See [Customizing Your Battlesnake](https://docs.battlesnake.com/snake-customization) for how to customize your Battlesnake's appearance using these values.
+This function is called by the game engine to make sure your Battlesnake is healthy and responding correctly. Your response determines what your Battlesnake will look like in that game. See [Battlesnake Personalization](https://docs.battlesnake.com/references/personalization) for how to customize your Battlesnake's appearance using these values.
 
 ### Changing Behavior
 
 On every turn of each game your Battlesnake receives information about the game board and must decide its next move.
 
-Locate the `/move` endpoint inside [index.js](index.js#L43). You should see code that looks like this:
-```javascript
-  var data = request.body;
-  // Choose a random direction to move in
-  possible_moves = ["up", "down", "left", "right"]
-  var choice = Math.floor(Math.random() * possible_moves.length);
-  var snake_move = possible_moves[choice];
+Locate the `handleMove` function inside [index.js](index.js#L35). Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `gameData` variable) and make an intelligent decision about where your Battlesnake should move next.
 
-  console.log("MOVE: " + snake_move);
-  return response.json({ move: snake_move })
-```
-
-Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `data` variable) and make an intelligent decision about where your Battlesnake should move next. 
-
-See the [Battlesnake Rules](https://docs.battlesnake.com/rules) for more information on playing the game, moving around the board, and improving your algorithm.
+See the [Battlesnake Game Rules](https://docs.battlesnake.com/references/rules) for more information on playing the game, moving around the board, and improving your algorithm.
 
 ### Updating Your Battlesnake
 
@@ -124,16 +113,9 @@ Now you have everything you need to start making your Battlesnake super smart! H
 
 * Keeping your logs open in a second window (using `heroku logs --tail`) is helpful for watching server activity and debugging any problems with your Battlesnake.
 
-* You can use the Javascript [console.log](https://nodejs.org/api/console.html) to output information to your server logs. This is very useful for debugging logic in your code during Battlesnake games.
+* You can use the JavaScript [console.log](https://nodejs.org/api/console.html) to output information to your server logs. This is very useful for debugging logic in your code during Battlesnake games.
 
-* Review the [Battlesnake API Docs](https://docs.battlesnake.com/snake-api) to learn what information is provided with each command. You can also output the data to your logs:
-```javascript
-app.post('/move', (request, response) => {
-  var data = request.body;
-  console.log("Data: %s", data);
-  return response.json({ move: "up" })
-}
-```
+* Review the [Battlesnake API Docs](https://docs.battlesnake.com/references/api) to learn what information is provided with each command.
 
 * When viewing a Battlesnake game you can pause playback and step forward/backward one frame at a time. If you review your logs at the same time, you can see what decision your Battlesnake made on each turn.
 
@@ -149,7 +131,7 @@ Arenas will regularly create new games and rank Battlesnakes based on their resu
 
 ## (Optional) Running Your Battlesnake Locally
 
-Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [NodeJS](https://nodejs.dev/) and [npm](https://docs.npmjs.com/getting-started/). 
+Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [Node.js](https://nodejs.dev/) and [npm](https://docs.npmjs.com/getting-started/).
 
 Once installed, run this to install all of the client dependencies.
 
