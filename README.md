@@ -1,6 +1,6 @@
 # A simple [Battlesnake](http://play.battlesnake.com) written in JavaScript for Node.js.
 
-This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/references/api). It's a great starting point for anyone wanting to program their first Battlesnake using Python. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
+This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/references/api). It's a great starting point for anyone wanting to program their first Battlesnake using JavaScript. It comes ready to deploy to [Heroku](https://heroku.com), although you can use other cloud providers if you'd like.
 
 ### Technologies
 
