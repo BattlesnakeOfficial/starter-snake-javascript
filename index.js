@@ -11,7 +11,7 @@ app.post('/start', handleStart)
 app.post('/move', handleMove)
 app.post('/end', handleEnd)
 
-app.listen(PORT, () => console.log(`Example app listening at http://127.0.0.1:${PORT}`))
+app.listen(PORT, () => console.log(`Battlesnake Server listening at http://127.0.0.1:${PORT}`))
 
 
 function handleIndex(request, response) {
