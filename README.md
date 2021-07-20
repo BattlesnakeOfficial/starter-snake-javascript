@@ -1,4 +1,4 @@
-# A Simple [Battlesnake](http://play.battlesnake.com?utm_source=github&utm_medium=readme&utm_campaign=javascript_starter&utm_content=homepage) Written in TypeScript
+# A Simple [Battlesnake](http://play.battlesnake.com?utm_source=github&utm_medium=readme&utm_campaign=javascript_starter&utm_content=homepage) Written in JavaScript
 
 ![Battlesnake Logo](https://media.battlesnake.com/social/GitHubSocial.png)
 
@@ -42,7 +42,8 @@ Whenever you update these values, go to the page for your Battlesnake and select
 
 On every turn of each game your Battlesnake receives information about the game board and must decide its next move.
 
-Locate the `move` function inside [src/logic.js](src/logic.js#L21). Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `gameState` variable) and decide where your Battlesnake should move next. 
+Locate the `move` function inside [src/logic.js](src/logic.js#L21). Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `gameState` variable) and decide where your Battlesnake should move next.
+
 See the [Battlesnake Game Rules](https://docs.battlesnake.com/references/rules) for more information on playing the game, moving around the board, and improving your algorithm.
 
 ## (Optional) Running Your Battlesnake Locally
@@ -50,6 +51,7 @@ See the [Battlesnake Game Rules](https://docs.battlesnake.com/references/rules) 
 Eventually you might want to run your Battlesnake server locally for faster testing and debugging. You can do this by installing [Node.js](https://nodejs.org/en/download/) and running:
 
 ```shell
+npm install
 npm start
 ```
 
@@ -59,7 +61,8 @@ npm start
 
 This Starter Project comes with a very simple test suite for you to expand! Located in `test/logic.spec.js` you can run them using the following command:
 ```shell
-npm install npm test```
+npm test
+```
 ---
 
 ## Playing Battlesnake
