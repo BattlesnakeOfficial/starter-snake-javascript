@@ -1,23 +1,23 @@
 {
-  "name": "starter-snake-node",
+  "name": "starter-snake-javascript",
   "version": "1.0.0",
-  "description": "A simple Battlesnake written in JavaScript for Node.js",
-  "main": "index.js",
+  "description": "A simple Battlesnake written in JavaScript",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "mocha --require mocha-suppress-logs test/**/*.spec.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BattlesnakeOfficial/starter-snake-node.git"
+    "url": "git+https://github.com/BattlesnakeOfficial/starter-snake-javascript.git"
   },
   "author": "BattlesnakeOfficial",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/BattlesnakeOfficial/starter-snake-node/issues"
-  },
-  "homepage": "https://github.com/BattlesnakeOfficial/starter-snake-node#readme",
+  "homepage": "https://github.com/BattlesnakeOfficial/starter-snake-javascript#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.0.2",
+    "mocha-suppress-logs": "^0.3.1"
   }
 }

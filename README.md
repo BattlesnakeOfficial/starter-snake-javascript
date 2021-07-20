@@ -1,4 +1,4 @@
-# A Simple [Battlesnake](http://play.battlesnake.com) Written in JavaScript for Node.js
+# A Simple [Battlesnake](http://play.battlesnake.com) Written in JavaScript
 
 This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/references/api). It's a great starting point for anyone wanting to program their first Battlesnake using JavaScript. It comes ready to use with [Repl.it](https://repl.it) and provides instructions below for getting started. It can also be deployed to [Heroku](https://heroku.com), or any other cloud provider you'd like.
 
@@ -22,11 +22,11 @@ This is a basic implementation of the [Battlesnake API](https://docs.battlesnake
 
 ## Running Your Battlesnake on [Repl.it](https://repl.it)
 
-[![Run on Repl.it](https://repl.it/badge/github/BattlesnakeOfficial/starter-snake-node)](https://repl.it/github/BattlesnakeOfficial/starter-snake-node)
+[![Run on Repl.it](https://repl.it/badge/github/BattlesnakeOfficial/starter-snake-javascript)](https://repl.it/github/BattlesnakeOfficial/starter-snake-javascript)
 
 1. Login to your [Repl.it](https://repl.it) account.
 
-2. Click the 'Run on Repl.it' button above, or visit the following URL: https://repl.it/github/BattlesnakeOfficial/starter-snake-node.
+2. Click the 'Run on Repl.it' button above, or visit the following URL: https://repl.it/github/BattlesnakeOfficial/starter-snake-javascript.
 
 3. You should see your Repl being initialized - this might take a few moments to complete.
 
@@ -72,15 +72,15 @@ Now you're ready to start customizing your Battlesnake's appearance and behavior
 
 ### Changing Appearance
 
-Locate the `handleIndex` function inside [index.js](index.js#L17). You should see a line that looks like this:
+Locate the `info` function inside [src/logic.js](src/logic.js#L1). You should see a line that looks like this:
 
 ```javascript
-var battlesnakeInfo = {
-  apiversion: '1',
-  author: '',
-  color: '#888888',
-  head: 'default',
-  tail: 'default'
+const response = {
+  apiversion: "1",
+  author: "",
+  color: "#888888",
+  head: "default",
+  tail: "default"
 }
 ```
 
@@ -92,7 +92,7 @@ Whenever you update these values, go to the page for your Battlesnake and select
 
 On every turn of each game your Battlesnake receives information about the game board and must decide its next move.
 
-Locate the `handleMove` function inside [index.js](index.js#L35). Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `gameData` variable) and decide where your Battlesnake should move next.
+Locate the `move` function inside [src/logic.js](src/logic.js#L21). Possible moves are "up", "down", "left", or "right". To start your Battlesnake will choose a move randomly. Your goal as a developer is to read information sent to you about the board (available in the `gameState` variable) and decide where your Battlesnake should move next.
 
 See the [Battlesnake Game Rules](https://docs.battlesnake.com/references/rules) for more information on playing the game, moving around the board, and improving your algorithm.
 
