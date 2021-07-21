@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 const { info, move } = require('../src/logic')
 
 function createGameState(myBattlesnake) {
@@ -36,14 +34,14 @@ function createBattlesnake(id, bodyCoords) {
 }
 
 describe('Battlesnake API Version', () => {
-    it('should be api version 1', () => {
+    test('should be api version 1', () => {
         const result = info()
-        assert.strictEqual(result.apiversion, "1")
+        expect(result.apiversion).toBe("1")
     })
 })
 
 describe('Battlesnake Moves', () => {
-    it('should never move into its own neck', () => {
+    test('should never move into its own neck', () => {
         // Arrange
         const me = createBattlesnake("me", [{ x: 2, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 0 }])
         const gameState = createGameState(me)
@@ -53,7 +51,7 @@ describe('Battlesnake Moves', () => {
             const moveResponse = move(gameState)
             // In this state, we should NEVER move left.
             const allowedMoves = ["up", "down", "right"]
-            assert.notStrictEqual(allowedMoves.indexOf(moveResponse.move), -1)
+            expect(allowedMoves).toContain(moveResponse.move)
         }
     })
 })

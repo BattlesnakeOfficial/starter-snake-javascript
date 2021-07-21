@@ -4,7 +4,7 @@
   "description": "A simple Battlesnake written in JavaScript",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --require mocha-suppress-logs test/**/*.spec.js"
+    "test": "jest --silent"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "mocha": "^9.0.2",
-    "mocha-suppress-logs": "^0.3.1"
+    "jest": "^27.0.6"
   }
 }
