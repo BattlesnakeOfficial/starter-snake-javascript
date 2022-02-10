@@ -3,6 +3,10 @@ const { info, start, move, end } = require('./logic')
 
 const app = express()
 app.use(express.json())
+app.use(function (req, res, next) {
+    res.set("Server", "BattlesnakeOfficial/starter-snake-javascript")
+    next()
+})
 
 const port = process.env.PORT || 8080
 
