@@ -23,7 +23,7 @@ export default function runServer(handlers) {
   });
 
   app.use(function(req, res, next) {
-    res.set("Server", "battlesnake/replit/starter-snake-javascript");
+    res.set("Server", "battlesnake/github/starter-snake-javascript");
     next();
   })
 
