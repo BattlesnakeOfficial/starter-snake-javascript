@@ -1,6 +1,6 @@
 # Battlesnake JavaScript Starter Project
 
-### An official Battlesnake template written in JavaScript. Get started at [play.battlesnake.com](https://play.battlesnake.com).
+An official Battlesnake template written in JavaScript. Get started at [play.battlesnake.com](https://play.battlesnake.com).
 
 ![Battlesnake Logo](https://media.battlesnake.com/social/StarterSnakeGitHubRepos_JavaScript.png)
 
